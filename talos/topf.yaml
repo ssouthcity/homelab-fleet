@@ -1,0 +1,28 @@
+kubernetesVersion: 1.36.1
+clusterEndpoint: https://kube.home.southcity.dev:6443
+clusterName: homelab
+nodes:
+    - host: talos-1
+      ip: 10.0.30.32
+      role: control-plane
+    - host: talos-2
+      ip: 10.0.30.33
+      role: control-plane
+    - host: talos-3
+      ip: 10.0.30.34
+      role: control-plane
+sops:
+    age:
+        - recipient: age1txmpc45rsl3yg5hk5wkrkcwtvlqn8mx5n7q70nel5ggjnwd2ygvquggdx3
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBNSi9hc2piQ09DZmYySUth
+            WDBHVXhHQXIwbncvakxBUjRrMWNwc0tmQkdvCmVRaVBEUXo2TmpaMm9xSCtCbk02
+            cmw5YlIzb3BTOXJnUFRIOTU1UTJHNWcKLS0tIFNkankzekdHWHh5bURMZUhyR1VE
+            OXcwOTRiYW8vRUhtZ0s5c2pEOGE1QlEKBaD3AEzo8GUW5L/6LDH35D+aoPomviiF
+            biz+nHw6UGFxXw7Z48gOc93lJY/WizKGIsaZjgT/AN+6Mpb0uvEcxg==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2026-05-21T03:34:26Z"
+    mac: ENC[AES256_GCM,data:PICWpwEtl0rzHppn5DDb8gHsl53PAH6lPkXXCaN6JOFW4l7mTZjbXDN7FH0EIf2ch1PHkp4cgB2f+OTbYb+38E+arlVAs9l/ml3yKUmna6shdoYf1bbZzEW1Mgq1JUdF1LZ0DciEVI6j0mkfZ7hFQgda6zsRb16K2V6sJcGQnQ4=,iv:QQZXhUBzLAhFORI7mAFWzlvjLVvFfXnwStlQWbVRb6M=,tag:rfc1oNtHxpOHZ1PfyYc5Zg==,type:str]
+    encrypted_regex: ^data$
+    version: 3.12.2

@@ -1,0 +1,5 @@
+machine:
+  network:
+    interfaces:
+      - interface: enp0s31f6
+        dhcp: true
