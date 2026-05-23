@@ -69,6 +69,14 @@ spec:
           fluxcd.controlplane.io/copyFrom: "flux-system/ghcr-auth"
       type: kubernetes.io/dockerconfigjson
     - apiVersion: v1
+      kind: Secret
+      metadata:
+        name: sops-age
+        namespace: << inputs.tenant >>
+        annotations:
+          fluxcd.controlplane.io/copyFrom: "flux-system/sops-age"
+      type: Opaque
+    - apiVersion: v1
       kind: ServiceAccount
       metadata:
         name: flux
@@ -126,6 +134,10 @@ spec:
           substituteFrom:
             - kind: ConfigMap
               name: flux-runtime-info
+        decryption:
+          provider: sops
+          secretRef:
+            name: sops-age
     - apiVersion: kustomize.toolkit.fluxcd.io/v1
       kind: Kustomization
       metadata:
@@ -149,3 +161,7 @@ spec:
           substituteFrom:
             - kind: ConfigMap
               name: flux-runtime-info
+        decryption:
+          provider: sops
+          secretRef:
+            name: sops-age
