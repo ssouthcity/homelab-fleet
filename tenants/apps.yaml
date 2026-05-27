@@ -19,6 +19,7 @@ spec:
       environment: "${ENVIRONMENT}"
       artifactSubjectWorkflow: "${ARTIFACT_SUBJECT_WORKFLOW}"
       artifactSubjectGitRef: "${ARTIFACT_SUBJECT_GIT_REF}"
+      podSecurityProfile: "restricted"
     - tenant: "qbittorrent"
       tag: "${ARTIFACT_TAG}"
       environment: "${ENVIRONMENT}"
@@ -31,9 +32,9 @@ spec:
       metadata:
         name: << inputs.tenant >>
         labels:
-          pod-security.kubernetes.io/enforce: << inputs.podSecurityProfile | default "baseline" >>
-          pod-security.kubernetes.io/warn: << inputs.podSecurityProfile | default "baseline" >>
-          pod-security.kubernetes.io/audit: << inputs.podSecurityProfile | default "baseline" >>
+          pod-security.kubernetes.io/enforce: << inputs.podSecurityProfile >>
+          pod-security.kubernetes.io/warn: << inputs.podSecurityProfile >>
+          pod-security.kubernetes.io/audit: << inputs.podSecurityProfile >>
           toolkit.fluxcd.io/role: "tenant"
     - apiVersion: v1
       kind: ConfigMap
