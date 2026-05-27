@@ -24,12 +24,16 @@ spec:
       environment: "${ENVIRONMENT}"
       artifactSubjectWorkflow: "${ARTIFACT_SUBJECT_WORKFLOW}"
       artifactSubjectGitRef: "${ARTIFACT_SUBJECT_GIT_REF}"
+      podSecurityProfile: "privileged"
   resources:
     - apiVersion: v1
       kind: Namespace
       metadata:
         name: << inputs.tenant >>
         labels:
+          pod-security.kubernetes.io/enforce: << inputs.podSecurityProfile | default "baseline" >>
+          pod-security.kubernetes.io/warn: << inputs.podSecurityProfile | default "baseline" >>
+          pod-security.kubernetes.io/audit: << inputs.podSecurityProfile | default "baseline" >>
           toolkit.fluxcd.io/role: "tenant"
     - apiVersion: v1
       kind: ConfigMap
