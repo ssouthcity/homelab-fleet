@@ -20,7 +20,7 @@ spec:
       artifactSubjectWorkflow: "${ARTIFACT_SUBJECT_WORKFLOW}"
       artifactSubjectGitRef: "${ARTIFACT_SUBJECT_GIT_REF}"
       podSecurityProfile: "restricted"
-    - tenant: "prowlarr"
+    - tenant: "media"
       tag: "${ARTIFACT_TAG}"
       environment: "${ENVIRONMENT}"
       artifactSubjectWorkflow: "${ARTIFACT_SUBJECT_WORKFLOW}"
