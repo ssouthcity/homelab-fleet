@@ -26,6 +26,12 @@ spec:
       artifactSubjectWorkflow: "${ARTIFACT_SUBJECT_WORKFLOW}"
       artifactSubjectGitRef: "${ARTIFACT_SUBJECT_GIT_REF}"
       podSecurityProfile: "baseline"
+    - tenant: "wger"
+      tag: "${ARTIFACT_TAG}"
+      environment: "${ENVIRONMENT}"
+      artifactSubjectWorkflow: "${ARTIFACT_SUBJECT_WORKFLOW}"
+      artifactSubjectGitRef: "${ARTIFACT_SUBJECT_GIT_REF}"
+      podSecurityProfile: "baseline"
   resources:
     - apiVersion: v1
       kind: Namespace
@@ -96,7 +102,8 @@ spec:
           provider: cosign
           matchOIDCIdentity:
             - issuer: ^https://token\.actions\.githubusercontent\.com$
-              subject: ^https://github\.com/ssouthcity/homelab-apps/\.github/workflows/<<
+              subject:
+                ^https://github\.com/ssouthcity/homelab-apps/\.github/workflows/<<
                 inputs.artifactSubjectWorkflow >>\.yaml@<<
                 inputs.artifactSubjectGitRef >>$
     - apiVersion: kustomize.toolkit.fluxcd.io/v1
