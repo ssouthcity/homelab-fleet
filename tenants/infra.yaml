@@ -22,6 +22,11 @@ spec:
       environment: "${ENVIRONMENT}"
       artifactSubjectWorkflow: "${ARTIFACT_SUBJECT_WORKFLOW}"
       artifactSubjectGitRef: "${ARTIFACT_SUBJECT_GIT_REF}"
+    - tenant: "descheduler"
+      tag: "${ARTIFACT_TAG}"
+      environment: "${ENVIRONMENT}"
+      artifactSubjectWorkflow: "${ARTIFACT_SUBJECT_WORKFLOW}"
+      artifactSubjectGitRef: "${ARTIFACT_SUBJECT_GIT_REF}"
     - tenant: "external-dns"
       tag: "${ARTIFACT_TAG}"
       environment: "${ENVIRONMENT}"
@@ -135,7 +140,8 @@ spec:
           provider: cosign
           matchOIDCIdentity:
             - issuer: ^https://token\.actions\.githubusercontent\.com$
-              subject: ^https://github\.com/ssouthcity/homelab-infra/\.github/workflows/<<
+              subject:
+                ^https://github\.com/ssouthcity/homelab-infra/\.github/workflows/<<
                 inputs.artifactSubjectWorkflow >>\.yaml@<<
                 inputs.artifactSubjectGitRef >>$
     - apiVersion: kustomize.toolkit.fluxcd.io/v1
