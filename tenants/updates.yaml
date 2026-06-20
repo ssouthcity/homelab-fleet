@@ -107,7 +107,7 @@ spec:
               email: fluxcdbot@users.noreply.github.com
               name: fluxcdbot
             messageTemplate: |
-              Automated image update
+              chore: fluxcd automated image update
 
               Files:
               {{ range $filename, $_ := .Changed.FileChanges -}}
