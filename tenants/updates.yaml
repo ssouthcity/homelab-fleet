@@ -118,15 +118,17 @@ spec:
             messageTemplate: |
               chore: fluxcd automated image update
 
-              Files:
+              # Files
+
               {{ range $filename, $_ := .Changed.FileChanges -}}
               - {{ $filename }}
               {{ end -}}
 
-              Objects:
+
+              # Objects
+               
               {{ range $resource, $changes := .Changed.Objects -}}
               - {{ $resource.Kind }} {{ $resource.Name }}
-                Changes:
               {{- range $_, $change := $changes }}
                   - {{ $change.OldValue }} -> {{ $change.NewValue }}
               {{ end -}}
