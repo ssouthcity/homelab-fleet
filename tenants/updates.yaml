@@ -37,10 +37,19 @@ spec:
         annotations:
           fluxcd.controlplane.io/copyFrom: "flux-system/github-auth"
     - apiVersion: v1
+      kind: Secret
+      metadata:
+        name: ghcr-auth
+        namespace: << inputs.namespace >>
+        annotations:
+          fluxcd.controlplane.io/copyFrom: "flux-system/ghcr-auth"
+    - apiVersion: v1
       kind: ServiceAccount
       metadata:
         name: flux
         namespace: << inputs.namespace >>
+      imagePullSecrets:
+        - name: ghcr-auth
     - apiVersion: rbac.authorization.k8s.io/v1
       kind: RoleBinding
       metadata:
