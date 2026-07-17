@@ -10,23 +10,29 @@ secureboot: true
 
 nodes:
   - host: homelab-talos-control-1
-    ip: 10.0.30.93
+    ip: 10.0.30.136
     role: control-plane
   - host: homelab-talos-control-2
-    ip: 10.0.30.213
+    ip: 10.0.30.147
     role: control-plane
   - host: homelab-talos-control-3
-    ip: 10.0.30.129
+    ip: 10.0.30.200
     role: control-plane
   - host: homelab-talos-worker-1
-    ip: 10.0.30.184
+    ip: 10.0.30.33
     role: worker
   - host: homelab-talos-worker-2
-    ip: 10.0.30.253
+    ip: 10.0.30.221
     role: worker
   - host: homelab-talos-worker-3
-    ip: 10.0.30.142
+    ip: 10.0.30.118
     role: worker
   - host: homelab-talos-worker-4
-    ip: 10.0.30.88
+    ip: 10.0.30.19
+    role: worker
+  - host: homelab-talos-worker-5
+    ip: 10.0.30.119
+    role: worker
+  - host: homelab-talos-worker-6
+    ip: 10.0.30.92
     role: worker
